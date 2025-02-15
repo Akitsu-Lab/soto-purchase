@@ -1,7 +1,8 @@
 import { Hono } from "npm:hono";
 import { cors } from "npm:hono/cors";
 import { logger } from "npm:hono/logger";
-import accountsRoutes from "./routes/purchaseRoutes.ts";
+import purchaseRoutes from "./routes/purchaseRoutes.ts";
+import eventRoutes from "./routes/eventRoutes.ts";
 
 const app = new Hono();
 
@@ -25,6 +26,7 @@ export const customLogger = (message: string, ...rest: string[]) => {
 };
 app.use(logger(customLogger));
 
-app.route("/purchase", accountsRoutes);
+app.route("/purchase", purchaseRoutes);
+app.route("/events", eventRoutes);
 
 Deno.serve({ port: 8001 }, app.fetch);
