@@ -42,15 +42,5 @@ deno run --env-file=.env.dev -A ./src/main.ts
 deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --env-file=.env.dev -A ./src/main.ts
 ```
 
-```shell
-curl -X 'POST' \
-  'http://localhost:8001/purchase' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "event_id": "1", \
-  "account_id": "1" \
-  "selected_number":"1" \
-  "is_winner":"1" \
-}'
-```
+## APIドキュメント
+- [swagger](https://akitsu-lab.github.io/soto-swagger/soto-purchase/index.html#/Purchase/purchaseKuji)
